@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!-- v1.2.5 , MIT license. https://github.com/bddjr/iehtml -->
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+
+	<script type="module">
+		// ES2022
+		if ((class {
+			static {
+				this.a = location.hash[1]
+			}
+		}).a == '/') {
+			stop()
+			try { document.getElementsByTagName('html')[0].style.display = 'none' } catch (e) { }
+			location.replace(location.origin + location.hash.slice(1))
+		}
+	</script>
+
+	<meta name="robots" content="noindex, nofollow" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Please upgrade or change browser</title>
+	<link rel="shortcut icon" href="data:," />
+	<link rel="icon" href="data:," />
+	<style>
+		* {
+			font-family: Arial, "Microsoft Yahei", system-ui;
+		}
+
+		html {
+			background-color: #ececec;
+		}
+
+		body {
+			margin: 32px auto;
+			text-align: center;
+		}
+
+		.divBrowsers {
+			width: 280px;
+			max-width: 100%;
+			margin: 50px auto;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.browsera {
+			color: #0069c2;
+			border: 2px solid #ffffff;
+			background-color: #ffffff;
+			text-decoration: none;
+			display: inline-block;
+			cursor: pointer;
+			width: 100px;
+			padding: 11px 8px;
+			margin: 8px;
+		}
+
+		.browsera:hover {
+			border-color: #0069c2;
+		}
+
+		img {
+			background: none;
+			border-width: 0;
+			width: 32px;
+			height: 32px;
+			display: block;
+			margin: 0 auto;
+		}
+
+		.browserspantitle {
+			font-size: 18px;
+			line-height: 22px;
+			height: 22px;
+			cursor: pointer;
+			display: block;
+			margin: 12px 0;
+		}
+
+		.browserspanVersion {
+			color: #808080;
+			font-size: 14px;
+			display: block;
+		}
+
+		.h1 {
+			font-weight: normal;
+		}
+
+		.footerLinkP {
+			margin: 8px auto;
+		}
+
+		.footerLinkA {
+			color: #808080;
+			text-decoration: none;
+			font-size: 14px;
+		}
+
+		.footerLinkA:hover {
+			text-decoration: underline;
+		}
+	</style>
+</head>
+
+<body>
+	<h1 class="h1" id="h1">Please upgrade or change browser</h1>
+	<div class="divBrowsers">
+		<a class="browsera" target="_blank" rel="noopener" href="https://www.google.cn/chrome/">
+			<img src="./icon/chrome-32-ie6.png" alt />
+			<span class="browserspantitle">Chrome</span>
+			<span class="browserspanVersion">≥ 94</span>
+		</a>
+		<a class="browsera" target="_blank" rel="noopener" href="https://www.microsoft.com/edge/download">
+			<img src="./icon/edge-32-ie6.png" alt />
+			<span class="browserspantitle">Edge</span>
+			<span class="browserspanVersion">≥ 94</span>
+		</a>
+		<a class="browsera" target="_blank" rel="noopener" href="http://win32subsystem.live/supermium/">
+			<img src="./icon/supermium-32-ie6.png" alt />
+			<span class="browserspantitle">Supermium</span>
+			<span class="browserspanVersion">≥ 115</span>
+		</a>
+		<a class="browsera" target="_blank" rel="noopener" href="https://www.mozilla.org/firefox/new/">
+			<img src="./icon/firefox-32-ie6.png" alt />
+			<span class="browserspantitle">Firefox</span>
+			<span class="browserspanVersion">≥ 93</span>
+		</a>
+	</div>
+
+	<div class="footer">
+		<p class="footerLinkP">
+			<a class="footerLinkA" href="https://github.com/bddjr/iehtml" target="_blank" rel="noopener">iehtml</a>
+		</p>
+	</div>
+
+	<script>
+		(function (langs) {
+			if (!langs[0]) return;
+			// The last item cannot be ended with a comma
+			// 最后一项行尾不能加逗号
+			var allLangs = {
+				"anotherName": {
+					"en": "en-us",
+					"en-gb": "en-us",
+					"zh-hans-cn": "zh-cn"
+				},
+				"values": {
+					"en-us": "",
+					"zh-cn": "请升级或更换浏览器"
+				}
+			};
+			for (var i = 0; i < langs.length; i++) {
+				var name = langs[i].toLowerCase();
+				var v = allLangs.values[allLangs.anotherName[name] || name];
+				if (v) document.title = h1.innerHTML = v;
+				if (v !== undefined) return;
+			}
+		})(navigator.languages || [navigator.language || navigator.browserLanguage])
+	</script>
+</body>
+
+</html>
